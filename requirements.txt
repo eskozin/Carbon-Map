@@ -1,0 +1,7 @@
+# git clone https://github.com/eskozin/Carbon-Map.git
+openpyxl
+django
+pandas
+folium
+shapely
+

@@ -6,6 +6,9 @@ from shapely.geometry import Polygon
 import pandas as pd
 import numpy as np
 import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Create your views here.
 def index(request):
@@ -16,7 +19,7 @@ def map(request):
                    zoom_start=10)
     folium.Marker(location=[57.1522, 65.5272], tooltip='click for more', popup='Tyumen').add_to(m)
 
-    df = pd.read_excel(os.path.join(os.getcwd(),'CDE.xlsx'), sheet_name='Лист2')
+    df = pd.read_excel(os.path.join(BASE_DIR,'CDE.xlsx'), sheet_name='Лист2')
     for i in range(1, 11):
         HeatMap(df[['Широта', 'Долгота', i]].to_numpy(), name=f'{i} балл').add_to(m)
     m.add_child(folium.LayerControl(collapsed=False))

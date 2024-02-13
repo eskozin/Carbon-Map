@@ -56,7 +56,7 @@ ROOT_URLCONF = 'geoproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates/partials'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/partials')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
